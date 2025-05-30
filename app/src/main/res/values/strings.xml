@@ -55,7 +55,12 @@
     <string name="txtLoginC">Login de cliente</string>
     <string name="btnLoginC">Ingresar</string>
     <string name="tvRegistrarC">Registrarme</string>
+    <string name="tvRecuperarPass">Recuperar contraseña</string>
 
+    <!--Recuperar contraseña-->
+    <string name="txtRecuperarPass">Recuperar contraseña</string>
+    <string name="txtInstrucciones">Ingrese su correo electrónico para enviarle las instrucciones de recuperación.</string>
+    <string name="btnEnviarInstrucciones">Enviar</string>
 
     <!--Productos-->
     <string name="txtAgregarProductos">Agregar Productos</string>
