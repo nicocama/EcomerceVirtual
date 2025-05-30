@@ -54,9 +54,9 @@ class FragmentTiendaCliente : Fragment() {
             .addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val nombres = "${snapshot.child("nombres").value}"
-                    //val direccion = "${snapshot.child("direccion").value}"
+                    val direccion = "${snapshot.child("direccion").value}"
                     binding.bienvenidaTXT.setText("Bienvenido(a): ${nombres}")
-                    //binding.direccionTXT.setText("${direccion}")
+                    binding.direccionTXT.setText("${direccion}")
                 }
 
                 override fun onCancelled(error: DatabaseError) {

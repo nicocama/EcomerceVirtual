@@ -17,6 +17,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <!--Mi dirección-->
+    <TextView
+        android:id="@+id/direccionTXT"
+        android:text="@string/direccionTXT"
+        app:drawableStartCompat="@drawable/gps"
+        android:drawablePadding="5dp"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <!--Productos aleatorios-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productosAleatRV"

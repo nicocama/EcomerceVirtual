@@ -2,6 +2,7 @@ package com.example.ecomercevirtual.Cliente.Nav_Fragments_Cliente
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.ecomercevirtual.Constantes
+import com.example.ecomercevirtual.Mapas.SeleccionarUbicacionActivity
 import com.example.ecomercevirtual.R
 import com.example.ecomercevirtual.databinding.FragmentMiPerfilClienteBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -38,6 +40,11 @@ class FragmentMiPerfilCliente : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentMiPerfilClienteBinding.inflate(layoutInflater,container, false)
 
+        binding.ubicacion.setOnClickListener{
+            val intent = Intent(mContext, SeleccionarUbicacionActivity::class.java)
+            obtenerUbicacion_ARL.launch(intent)
+        }
+
         binding.imgCPerfil.setOnClickListener{
             seleccionarImg()
         }
@@ -57,7 +64,7 @@ class FragmentMiPerfilCliente : Fragment() {
         email = binding.emailCPerfil.text.toString().trim()
         dni = binding.dniCPerfil.text.toString().trim()
         telefono = binding.telefonoCPerfil.text.toString().trim()
-        //direccion = binding.ubicacion.text.toString().trim()
+        direccion = binding.ubicacion.text.toString().trim()
 
         val hashMap : HashMap<String, Any> = HashMap()
 
@@ -65,9 +72,9 @@ class FragmentMiPerfilCliente : Fragment() {
         hashMap["email"] = "${email}"
         hashMap["dni"] = "${dni}"
         hashMap["telefono"] = "${telefono}"
-        //hashMap["direccion"] = "${direccion}"
-        //hashMap["latitud"] = "${latitud}"
-        //hashMap["longitud"] = "${longitud}"
+        hashMap["direccion"] = "${direccion}"
+        hashMap["latitud"] = "${latitud}"
+        hashMap["longitud"] = "${longitud}"
 
         val ref = FirebaseDatabase.getInstance().getReference("Usuarios")
         ref.child(firebaseAuth.uid!!)
@@ -100,7 +107,7 @@ class FragmentMiPerfilCliente : Fragment() {
                     val telefono = "${snapshot.child("telefono").value}"
                     val proveedor = "${snapshot.child("proveedor").value}"
                     val fechaRegistro = "${snapshot.child("tRegistro").value}"
-                    //val direccion = "${snapshot.child("direccion").value}"
+                    val direccion = "${snapshot.child("direccion").value}"
 
                     val fecha = Constantes().obtenerFecha(fechaRegistro.toLong())
 
@@ -109,7 +116,7 @@ class FragmentMiPerfilCliente : Fragment() {
                     binding.dniCPerfil.setText(dni)
                     binding.telefonoCPerfil.setText(telefono)
                     binding.fechaRegistroCPerfil.text = "Se unió el $fecha"
-                    //binding.ubicacion.setText(direccion)
+                    binding.ubicacion.setText(direccion)
 
                     try {
                         Glide.with(mContext)
@@ -197,4 +204,21 @@ class FragmentMiPerfilCliente : Fragment() {
                 Toast.makeText(mContext, "${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
+    private var latitud = 0.0
+    private var longitud = 0.0
+    private var direccion = ""
+    private val obtenerUbicacion_ARL =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()){resultado->
+            if (resultado.resultCode == Activity.RESULT_OK){
+                val data = resultado.data
+                if (data!=null){
+                    latitud = data.getDoubleExtra("latitud", 0.0)
+                    longitud = data.getDoubleExtra("longitud", 0.0)
+                    direccion = data.getStringExtra("direccion") ?: ""
+
+                    binding.ubicacion.setText(direccion)
+                }
+            }
+        }
 }

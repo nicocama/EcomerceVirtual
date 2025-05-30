@@ -2,7 +2,7 @@
     <string name="app_name">Tienda Virtual</string>
 
     <string name="default_web_client_id">363065038628-njifhf8kslclhib17qeif85jo0mvri1u.apps.googleusercontent.com</string>
-
+    <string name="mi_google_maps_api_key">AIzaSyDDgFUdKwJGqc4n-FQEnvrwESbd9peTMGQ</string>
 
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
@@ -133,6 +133,7 @@
     <string name="txt_bienvenido">Bienvenido(a)</string>
 
     <string name="bienvenidaTXT">Bienvenido(a) Nico!!!</string>
+    <string name="direccionTXT">Mi dirección</string>
     <string name="txtCategorias">Nuestras categorías</string>
 
     <!--Perfil del cliente-->
@@ -141,9 +142,14 @@
     <string name="emailCPerfil">Email</string>
     <string name="dniCPerfil">DNI</string>
     <string name="telefonoCPerfil">Teléfono</string>
+    <string name="ubicacion">Ubicación</string>
     <string name="fechaRegistroCPerfil">Fecha de registro</string>
     <string name="proveedorCPerfil">Proveedor</string>
     <string name="btnGuardarInfoC">Guardar</string>
+
+    <!--Mapas-->
+    <string name="txtSeleccionarUbicacion">Seleccione una ubicación</string>
+    <string name="Btn_listo">Confirmar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
