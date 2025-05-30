@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Cliente.Bottom_Nav_Fragments_Cliente.FragmentTiendaCliente">
+
+    <!--Productos aleatorios-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productosAleatRV"
+        tools:listitem="@layout/item_producto_aleatorio"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriasRV"
@@ -14,4 +24,4 @@
         app:spanCount="2"
         tools:listitem="@layout/item_categoria_cliente"/>
 
-</FrameLayout>
+</LinearLayout>

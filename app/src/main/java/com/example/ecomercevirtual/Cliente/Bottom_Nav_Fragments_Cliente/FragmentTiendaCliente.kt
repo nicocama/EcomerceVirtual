@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.ecomercevirtual.Adaptadores.AdaptadorCategoriaCliente
+import com.example.ecomercevirtual.Adaptadores.AdaptadorProductoAleatorio
 import com.example.ecomercevirtual.Modelo.ModeloCategoria
+import com.example.ecomercevirtual.Modelo.ModeloProducto
 import com.example.ecomercevirtual.R
 import com.example.ecomercevirtual.databinding.FragmentTiendaClienteBinding
 import com.google.firebase.database.DataSnapshot
@@ -23,6 +25,9 @@ class FragmentTiendaCliente : Fragment() {
     private lateinit var categoriaArrayList: ArrayList<ModeloCategoria>
     private lateinit var adaptadorCategoria : AdaptadorCategoriaCliente
 
+    private lateinit var productosArrayList: ArrayList<ModeloProducto>
+    private lateinit var adaptadorProducto: AdaptadorProductoAleatorio
+
     override fun onAttach(context: Context) {
         mContext = context
         super.onAttach(context)
@@ -36,6 +41,30 @@ class FragmentTiendaCliente : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         listarCategorias()
+        obtenerProductosAleatorios()
+    }
+
+    private fun obtenerProductosAleatorios() {
+        productosArrayList = ArrayList()
+
+        var ref = FirebaseDatabase.getInstance().getReference("Productos")
+        ref.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                productosArrayList.clear()
+                for (ds in snapshot.children){
+                    val modeloProducto = ds.getValue(ModeloProducto::class.java)
+                    productosArrayList.add((modeloProducto!!))
+                }
+
+                val listaAleatoria = productosArrayList.shuffled().take(3)
+
+                adaptadorProducto = AdaptadorProductoAleatorio(mContext, listaAleatoria)
+                binding.productosAleatRV.adapter = adaptadorProducto
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     private fun listarCategorias() {
