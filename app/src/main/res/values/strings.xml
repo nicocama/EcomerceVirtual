@@ -62,6 +62,14 @@
     <string name="txtInstrucciones">Ingrese su correo electrónico para enviarle las instrucciones de recuperación.</string>
     <string name="btnEnviarInstrucciones">Enviar</string>
 
+    <!--Actualizar contraseña-->
+    <string name="txtActualizarPass">Actualizar contraseña</string>
+    <string name="txtInstruccionesP">Su nueva contraseña debe ser diferente a la actual.</string>
+    <string name="etPasswordActual">Contraseña actual</string>
+    <string name="etPasswordNueva">Contraseña nueva</string>
+    <string name="etPasswordNuevaR">Repita nueva contraseña</string>
+    <string name="btnActualizarPasswordC">Actualizar</string>
+
     <!--Productos-->
     <string name="txtAgregarProductos">Agregar Productos</string>
     <string name="etNombresP">Nombre del producto</string>
@@ -151,6 +159,7 @@
     <string name="fechaRegistroCPerfil">Fecha de registro</string>
     <string name="proveedorCPerfil">Proveedor</string>
     <string name="btnGuardarInfoC">Guardar</string>
+    <string name="btnActualizarPassword">Actualizar contraseña</string>
 
     <!--Mapas-->
     <string name="txtSeleccionarUbicacion">Seleccione una ubicación</string>

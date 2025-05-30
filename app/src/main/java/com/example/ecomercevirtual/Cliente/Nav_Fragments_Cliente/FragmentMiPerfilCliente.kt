@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
+import com.example.ecomercevirtual.Cliente.ActualizarPasswordActivity
 import com.example.ecomercevirtual.Constantes
 import com.example.ecomercevirtual.Mapas.SeleccionarUbicacionActivity
 import com.example.ecomercevirtual.R
@@ -51,6 +52,10 @@ class FragmentMiPerfilCliente : Fragment() {
 
         binding.btnGuardarInfoC.setOnClickListener{
             actualizarInformacion()
+        }
+
+        binding.btnActualizarPassword.setOnClickListener {
+            startActivity(Intent(mContext, ActualizarPasswordActivity::class.java))
         }
 
         return binding.root
@@ -130,7 +135,7 @@ class FragmentMiPerfilCliente : Fragment() {
                     if (proveedor == "email"){
                         binding.proveedorCPerfil.text = "La cuenta fue creada a través de su email"
                         binding.emailCPerfil.isEnabled = false
-                        //binding.btnActualizarContraseA.visibility = View.VISIBLE
+                        binding.btnActualizarPassword.visibility = View.VISIBLE
                     }else if (proveedor == "google"){
                         binding.proveedorCPerfil.text = "La cuenta fue creada a través de una cuenta de Google"
                         binding.emailCPerfil.isEnabled = false
