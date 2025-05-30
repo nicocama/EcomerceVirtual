@@ -7,6 +7,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Cliente.Bottom_Nav_Fragments_Cliente.FragmentTiendaCliente">
 
+    <!--Mensaje de bienvenida-->
+    <TextView
+        android:id="@+id/bienvenidaTXT"
+        android:text="@string/bienvenidaTXT"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <!--Productos aleatorios-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/productosAleatRV"
@@ -16,6 +26,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <!--Mensaje de categorías-->
+    <TextView
+        android:id="@+id/txtCategorias"
+        android:text="@string/txtCategorias"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/azul_marino_oscuro"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!--Categorías de los productos-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriasRV"
         android:layout_width="match_parent"

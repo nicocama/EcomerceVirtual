@@ -109,6 +109,9 @@ class LoginTelefonoActivity : AppCompatActivity() {
         datosCliente["uid"] = "${uid}"
         datosCliente["nombres"] = ""
         datosCliente["telefono"] = "${codigoTelnumeroTel}"
+        datosCliente["email"] = ""
+        datosCliente["dni"] = ""
+        datosCliente["proveedor"] = "telefono"
         datosCliente["tRegistro"] = tiempoReg
         datosCliente["imagen"] = ""
         datosCliente["tipoUsuario"] = "Cliente"
@@ -148,7 +151,6 @@ class LoginTelefonoActivity : AppCompatActivity() {
     private var codigoTelefono = "" //+57
     private var numeroTelefono = "" //3207894561
     private var codigoTelnumeroTel = "" //+57 3207894561
-
     private fun validarData() {
         codigoTelefono = binding.telCodePicker.selectedCountryCodeWithPlus
         numeroTelefono = binding.etTelefonoC.text.toString().trim()
